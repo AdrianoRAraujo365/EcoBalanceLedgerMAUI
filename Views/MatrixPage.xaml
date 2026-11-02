@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoBalanceLedger.Views.MatrixPage"
+             BackgroundColor="#0f172a"
+             Title="Matriz de Leontief">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+            <!-- Header -->
+            <Label Text="NÚCLEO DE INTELIGÊNCIA" FontSize="11" TextColor="#10b981" FontAttributes="Bold" CharacterSpacing="1.5" />
+            <Label Text="Matriz de Insumo-Produto" FontSize="24" TextColor="#f8fafc" FontAttributes="Bold" />
+            <Label Text="Modelo de Wassily Leontief e validação de Hawkins-Simons: x = (I - C)⁻¹ · d"
+                   FontSize="13" TextColor="#9ca3af" />
+
+            <!-- Controles -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                <Button Text="Restaurar" Clicked="OnResetClicked" BackgroundColor="#374151" TextColor="White" CornerRadius="8" HeightRequest="38" />
+                <Button Text="Otimizar (-10%)" Clicked="OnOptimizeClicked" BackgroundColor="#059669" TextColor="White" CornerRadius="8" HeightRequest="38" />
+            </HorizontalStackLayout>
+
+            <!-- Tabela de Setores e Coeficientes -->
+            <Border Stroke="#1e293b" StrokeThickness="1" BackgroundColor="#1e293b" StrokeShape="RoundRectangle 12" Padding="12">
+                <VerticalStackLayout Spacing="10" x:Name="MatrixContainer">
+                    <!-- O grid de entradas é populado via C# -->
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Card de Resultado Calculado -->
+            <Border Stroke="#10b981" StrokeThickness="1.5" BackgroundColor="#111f2e" StrokeShape="RoundRectangle 12" Padding="16">
+                <VerticalStackLayout Spacing="6">
+                    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Produção Total Calculada (X):" TextColor="#9ca3af" FontSize="13" VerticalOptions="Center"/>
+                        <Label x:Name="LblProducaoTotal" Text="0.00" TextColor="#10b981" FontSize="22" FontAttributes="Bold" Margin="10,0,0,0"/>
+                    </HorizontalStackLayout>
+                    <Label x:Name="LblFormulaInfo" Text="Fórmula: X = (I − C)⁻¹ · d" TextColor="#9ca3af" FontSize="11" FontFamily="Monospace" />
+                    <Label x:Name="LblHawkinsStatus" Text="✓ Teorema de Hawkins-Simons atendido" TextColor="#10b981" FontSize="12" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
