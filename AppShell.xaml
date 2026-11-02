@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EcoBalanceLedger.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:EcoBalanceLedger.Views"
+    Shell.BackgroundColor="#1e293b"
+    Shell.ForegroundColor="#10b981"
+    Shell.TitleColor="#f8fafc"
+    Shell.TabBarBackgroundColor="#1e293b"
+    Shell.TabBarForegroundColor="#10b981"
+    Shell.TabBarUnselectedColor="#9ca3af">
+
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent Title="EcoBalance Ledger" ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+        <Tab Title="Matriz" Icon="grid.png">
+            <ShellContent Title="Matriz de Leontief" ContentTemplate="{DataTemplate views:MatrixPage}" />
+        </Tab>
+        <Tab Title="Blockchain" Icon="link.png">
+            <ShellContent Title="Blockchain Ledger" ContentTemplate="{DataTemplate views:BlockchainPage}" />
+        </Tab>
+        <Tab Title="ROI" Icon="calculator.png">
+            <ShellContent Title="Simulador ROI" ContentTemplate="{DataTemplate views:SimulatorPage}" />
+        </Tab>
+        <Tab Title="ESG" Icon="barchart.png">
+            <ShellContent Title="Dashboard ESG" ContentTemplate="{DataTemplate views:DashboardPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
