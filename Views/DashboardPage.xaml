@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoBalanceLedger.Views.DashboardPage"
+             BackgroundColor="#0f172a"
+             Title="Dashboard ESG">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+            <Label Text="EVOLUÇÃO DECENAL" FontSize="11" TextColor="#10b981" FontAttributes="Bold" CharacterSpacing="1.5" />
+            <Label Text="Dashboard ESG 2015–2026" FontSize="24" TextColor="#f8fafc" FontAttributes="Bold" />
+            <Label Text="Conformidade com normas ISO 14001, IFRS S2 e diretrizes GRI 305." FontSize="13" TextColor="#9ca3af" />
+
+            <!-- Grade de KPIs Principais -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" RowSpacing="10" ColumnSpacing="10" x:Name="KpisGrid">
+                <!-- Populado dinamicamente via C# -->
+            </Grid>
+
+            <!-- Previsão de Resiliência Climática 2030 (IFRS S2) -->
+            <Border Stroke="#8b5cf6" BackgroundColor="#1e293b" StrokeShape="RoundRectangle 12" Padding="16">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Previsão de Resiliência Climática (IFRS S2) — 2030" TextColor="#f8fafc" FontSize="15" FontAttributes="Bold"/>
+                    
+                    <VerticalStackLayout Spacing="4">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Cenário Otimista (Conformidade ESG projetada)" TextColor="#9ca3af" FontSize="12"/>
+                            <Label Grid.Column="1" Text="92%" TextColor="#10b981" FontAttributes="Bold"/>
+                        </Grid>
+                        <ProgressBar Progress="0.92" ProgressColor="#10b981" HeightRequest="6" BackgroundColor="#334155"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="4">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Cenário Base (Tendência atual mantida)" TextColor="#9ca3af" FontSize="12"/>
+                            <Label Grid.Column="1" Text="78%" TextColor="#0ea5e9" FontAttributes="Bold"/>
+                        </Grid>
+                        <ProgressBar Progress="0.78" ProgressColor="#0ea5e9" HeightRequest="6" BackgroundColor="#334155"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="4">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Cenário de Risco (Sem novos investimentos)" TextColor="#9ca3af" FontSize="12"/>
+                            <Label Grid.Column="1" Text="65%" TextColor="#f59e0b" FontAttributes="Bold"/>
+                        </Grid>
+                        <ProgressBar Progress="0.65" ProgressColor="#f59e0b" HeightRequest="6" BackgroundColor="#334155"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Botão de Exportação -->
+            <Button Text="📊 Gerar Relatório de Auditoria ESG (PDF/TXT)" Clicked="OnExportReportClicked"
+                    BackgroundColor="#059669" TextColor="White" FontAttributes="Bold" CornerRadius="10" HeightRequest="48"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
